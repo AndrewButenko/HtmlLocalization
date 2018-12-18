@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AB.HtmlLocalization.WebResources", "AB.HtmlLocalization.WebResources", "{53F58146-9259-4958-9932-5620164F3268}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_1581"
+		Debug.AspNetCompiler.PhysicalPath = "AB.HtmlLocalization.WebResources\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1581\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_1581"
+		Release.AspNetCompiler.PhysicalPath = "AB.HtmlLocalization.WebResources\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_1581\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "1581"
+		SlnRelativePath = "AB.HtmlLocalization.WebResources\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AB.HtmlLocalization.Plugins", "AB.HtmlLocalization.Plugins\AB.HtmlLocalization.Plugins.csproj", "{37CAE39A-645B-4E16-BFF8-E20B31D74DD5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53F58146-9259-4958-9932-5620164F3268}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53F58146-9259-4958-9932-5620164F3268}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53F58146-9259-4958-9932-5620164F3268}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{53F58146-9259-4958-9932-5620164F3268}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{37CAE39A-645B-4E16-BFF8-E20B31D74DD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37CAE39A-645B-4E16-BFF8-E20B31D74DD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37CAE39A-645B-4E16-BFF8-E20B31D74DD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37CAE39A-645B-4E16-BFF8-E20B31D74DD5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D1316663-9B83-4E0C-9086-94C1244E1561}
+	EndGlobalSection
+EndGlobal
