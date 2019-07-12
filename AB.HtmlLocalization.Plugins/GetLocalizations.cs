@@ -24,7 +24,7 @@ namespace AB.HtmlLocalization.Plugins
 
             var jsWebResourcesQuery = new QueryExpression("webresource")
             {
-                ColumnSet = new ColumnSet("dependencyxml")
+                ColumnSet = new ColumnSet("name", "dependencyxml")
             };
 
             jsWebResourcesQuery.Criteria.AddCondition("name", ConditionOperator.In, webResources);
@@ -44,11 +44,19 @@ namespace AB.HtmlLocalization.Plugins
                     .Where(d => d.Attribute("name") != null).Select(d => d.Attribute("name").Value).Distinct());
             });
 
+            if (dependentWebresources.Count == 0)
+            {
+                context.OutputParameters["Localizations"] = JsonConvert.SerializeObject(new Dictionary<string, string>());
+                return;
+            }
+
             var resxWebResourcesQuery = new QueryExpression("webresource")
             {
                 ColumnSet = new ColumnSet("content", "name")
             };
             resxWebResourcesQuery.Criteria.AddCondition("name", ConditionOperator.In, dependentWebresources.ToList<object>().ToArray());
+            //Webresource Type 12 - resx files - we need only those
+            resxWebResourcesQuery.Criteria.AddCondition("webresourcetype", ConditionOperator.Equal, 12);
 
             var resxWebResources = service.RetrieveMultiple(resxWebResourcesQuery).Entities.ToList();
 
@@ -62,7 +70,7 @@ namespace AB.HtmlLocalization.Plugins
 
                 var content = t.GetAttributeValue<string>("content");
 
-                content = Encoding.Default.GetString(Convert.FromBase64String(content)).Substring(3);
+                content = Encoding.Default.GetString(Convert.FromBase64String(content));
 
                 var contentDocument = XDocument.Parse(content);
 

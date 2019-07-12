@@ -24,20 +24,25 @@ AB.HtmlLocalization = (function () {
             Xrm.WebApi.online.execute(ab_GetLocalizationRequest).then(
                 function success(result) {
                     if (result.ok) {
-                        var results = JSON.parse(result.responseText);
+                        result.json().then(function(results) {
+                                var resultsObject = JSON.parse(results.Localizations);
 
-                        var resultsObject = JSON.parse(results.Localizations);
+                                for (var i in resultsObject) {
+                                    if (i === "DependencyNameToGuidMap") {
+                                        window[i] = JSON.parse(resultsObject[i]);
+                                    } else {
+                                        window[i] = resultsObject[i];
+                                    }
+                                }
 
-                        for (var i in resultsObject) {
-                            if (i === "DependencyNameToGuidMap") {
-                                window[i] = JSON.parse(resultsObject[i]);
-                            } else {
-                                window[i] = resultsObject[i];
-                            }
-                        }
+                                resolve();
+                            },
+                            function(error) {
+                                reject(error);
+                            });
+                    } else {
+                        reject(new Error("Something went wrong during call of action..."));
                     }
-
-                    resolve();
                 },
                 function (error) {
                     reject(error);
