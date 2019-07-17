@@ -70,9 +70,19 @@ namespace AB.HtmlLocalization.Plugins
 
                 var content = t.GetAttributeValue<string>("content");
 
-                content = Encoding.Default.GetString(Convert.FromBase64String(content));
+                content = Encoding.UTF8.GetString(Convert.FromBase64String(content));
 
-                var contentDocument = XDocument.Parse(content);
+                XDocument contentDocument;
+
+                try
+                {
+                    contentDocument = XDocument.Parse(content);
+                }
+                catch
+                {
+                    content = content.Substring(1);
+                    contentDocument = XDocument.Parse(content);
+                }
 
                 var dataNodes = contentDocument.XPathSelectElements("root/data").Select(n => new { Name = n.Attribute("name").Value, Value = n.Element("value").Value }).ToDictionary(n => n.Name, n => n.Value);
 
